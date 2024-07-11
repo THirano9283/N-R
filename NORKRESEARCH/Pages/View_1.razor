@@ -1,0 +1,27 @@
+@page "/"
+@page "/view_1"
+@using Financial
+@using Models.Financial
+@inject IFinancialService FinancialService
+
+<div class="row-layout view-1-container">
+    <div class="column-layout group">
+        <h5 class="h5"></h5>
+        <div class="column-layout group_1">
+            <IgbCategoryChart DataSource="@_financialBoxOfficeRevenue" ChartType="CategoryChartType.Column" ChartTitle="NORK RESEARCH1" IncludedProperties="@(new[] { "Franchise", "TotalWorldBoxOfficeRevenue", "HighestGrossingMovieInSeries" })" InitialSorts="Franchise asc" YAxisMinimumValue="0" ComputedPlotAreaMarginMode="ComputedPlotAreaMarginMode.Series" class="category-chart" view_1-scope></IgbCategoryChart>
+        </div>
+        <div class="column-layout group_2">
+            <IgbCategoryChart DataSource="@_financialBoxOfficeRevenue" ChartType="CategoryChartType.Point" ChartTitle="NORK RESEARCH2" ComputedPlotAreaMarginMode="ComputedPlotAreaMarginMode.Series" class="category-chart" view_1-scope></IgbCategoryChart>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<BoxOfficeRevenueType> _financialBoxOfficeRevenue = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _financialBoxOfficeRevenue = await FinancialService.GetBoxOfficeRevenue();
+        await base.OnInitializedAsync();
+    }
+}

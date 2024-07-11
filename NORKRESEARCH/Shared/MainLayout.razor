@@ -1,0 +1,88 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="column-layout master-view-container">
+    <IgbNavbar class="navbar" master_view-scope>
+        <IgbIconButton slot="start" Variant="IconButtonVariant.Flat" @onclick="@(e => _navDrawer!.ToggleAsync())" class="icon-button" master_view-scope>
+            <span class="material-icons icon">
+                menu
+            </span>
+            <IgbRipple></IgbRipple>
+        </IgbIconButton>
+        <div class="row-layout group">
+            <h6 class="h6">
+                NORK RESEARCH
+            </h6>
+        </div>
+        <IgbIconButton slot="end" Variant="IconButtonVariant.Flat" class="icon-button" master_view-scope>
+            <span class="material-icons icon">
+                search
+            </span>
+            <IgbRipple></IgbRipple>
+        </IgbIconButton>
+        <IgbIconButton slot="end" Variant="IconButtonVariant.Flat" class="icon-button" master_view-scope>
+            <span class="material-icons icon">
+                favorite
+            </span>
+            <IgbRipple></IgbRipple>
+        </IgbIconButton>
+        <IgbIconButton slot="end" Variant="IconButtonVariant.Flat" class="icon-button" master_view-scope>
+            <span class="material-icons icon">
+                more_vert
+            </span>
+            <IgbRipple></IgbRipple>
+        </IgbIconButton>
+    </IgbNavbar>
+    <div class="row-layout group_1">
+        <IgbNavDrawer @ref="_navDrawer" class="nav-drawer" master_view-scope>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("/view_1"))">
+                <span slot="icon">
+                    <span class="material-icons icon_1">
+                        book
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">View 1</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("/view_2"))">
+                <span slot="icon">
+                    <span class="material-icons icon_1">
+                        assessment
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">View 2</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("/view_3"))">
+                <span slot="icon">
+                    <span class="material-icons icon_1">
+                        assignment_turned_in
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">View 3</div>
+            </IgbNavDrawerItem>
+            <IgbNavDrawerItem @onclick="@(e => Navigate("/子ビュー"))">
+                <span slot="icon">
+                    <span class="material-icons icon_1">
+                        assignment_turned_in
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </span>
+                <div slot="content">子ビュー</div>
+            </IgbNavDrawerItem>
+        </IgbNavDrawer>
+        <div class="view-container">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+    private IgbNavDrawer _navDrawer;
+
+    public void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}

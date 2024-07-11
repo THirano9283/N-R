@@ -1,0 +1,302 @@
+@page "/子ビュー"
+@using Financial
+@using Models.Financial
+@inject IFinancialService FinancialService
+
+<div class="row-layout container">
+    <div class="column-layout group">
+        <div class="row-layout group_1">
+            <div class="column-layout group_2">
+                <IgbAccordion class="accordion" 子ビュー-scope>
+                    <IgbExpansionPanel>
+                        <p class="typography__body-2 content">
+                            Body 2
+                        </p>
+                        <span slot="title">タイトル...</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <p class="typography__body-2 content">
+                            Body 2
+                        </p>
+                        <span slot="title">タイトル...</span>
+                    </IgbExpansionPanel>
+                    <IgbExpansionPanel>
+                        <p class="typography__body-2 content">
+                            Body 2
+                        </p>
+                        <span slot="title">タイトル...</span>
+                    </IgbExpansionPanel>
+                </IgbAccordion>
+            </div>
+            <div class="column-layout group_2">
+                <IgbCard class="card" 子ビュー-scope>
+                    <IgbCardHeader>
+                        <h3 slot="title">
+                            タイトル...
+                        </h3>
+                        <h5 slot="subtitle">
+                            サブタイトル...
+                        </h5>
+                    </IgbCardHeader>
+                    <IgbCardActions class="actions-content" 子ビュー-scope>
+                        <IgbButton Variant="ButtonVariant.Flat" slot="start" Size="SizableComponentSize.Large" class="button" 子ビュー-scope>
+                            Button
+                            <IgbRipple></IgbRipple>
+                        </IgbButton>
+                        <IgbIconButton slot="end" Variant="IconButtonVariant.Flat">
+                            <span class="material-icons">
+                                favorite
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbIconButton>
+                        <IgbIconButton slot="end" Variant="IconButtonVariant.Flat">
+                            <span class="material-icons">
+                                bookmark
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbIconButton>
+                        <IgbIconButton slot="end" Variant="IconButtonVariant.Flat">
+                            <span class="material-icons">
+                                share
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </IgbIconButton>
+                    </IgbCardActions>
+                </IgbCard>
+            </div>
+            <div class="column-layout group_2">
+                <IgbExpansionPanel Open="true" class="expansion-panel" 子ビュー-scope>
+                    <p class="typography__body-2 content">
+                        Body 2
+                    </p>
+                    <span slot="title">タイトル...</span>
+                    <span slot="subtitle">サブタイトル...</span>
+                </IgbExpansionPanel>
+                <IgbStepper TitlePosition="StepperTitlePosition.Bottom" @ref="_stepper" class="stepper" 子ビュー-scope>
+                    <IgbStep Invalid="true">
+                        <div class="column-layout step-content">
+                            <p class="typography__body-1 content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur soluta nulla asperiores, officia ullam recusandae voluptatem omnis perferendis vitae non magni magnam praesentium placeat nemo quas repudiandae. Nisi, quo ex!
+                            </p>
+                            <div class="row-layout group_3">
+                                <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => _stepper!.NextAsync())" class="button_1" 子ビュー-scope>
+                                    Next
+                                    <IgbRipple></IgbRipple>
+                                </IgbButton>
+                            </div>
+                        </div>
+                        <p slot="title">Address</p>
+                    </IgbStep>
+                    <IgbStep Invalid="true">
+                        <div class="column-layout step-content">
+                            <p class="typography__body-1 content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur soluta nulla asperiores, officia ullam recusandae voluptatem omnis perferendis vitae non magni magnam praesentium placeat nemo quas repudiandae. Nisi, quo ex!
+                            </p>
+                            <div class="row-layout group_3">
+                                <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => _stepper!.PrevAsync())" class="button_1" 子ビュー-scope>
+                                    Prev
+                                    <IgbRipple></IgbRipple>
+                                </IgbButton>
+                                <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => _stepper!.NextAsync())" class="button_1" 子ビュー-scope>
+                                    Next
+                                    <IgbRipple></IgbRipple>
+                                </IgbButton>
+                            </div>
+                        </div>
+                        <p slot="title">Item</p>
+                    </IgbStep>
+                    <IgbStep Optional="true">
+                        <div class="column-layout step-content">
+                            <p class="typography__body-1 content">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur soluta nulla asperiores, officia ullam recusandae voluptatem omnis perferendis vitae non magni magnam praesentium placeat nemo quas repudiandae. Nisi, quo ex!
+                            </p>
+                            <div class="row-layout group_3">
+                                <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => _stepper!.PrevAsync())" class="button_1" 子ビュー-scope>
+                                    Prev
+                                    <IgbRipple></IgbRipple>
+                                </IgbButton>
+                                <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => _stepper!.ResetAsync())" class="button_1" 子ビュー-scope>
+                                    Reset
+                                    <IgbRipple></IgbRipple>
+                                </IgbButton>
+                            </div>
+                        </div>
+                        <p slot="title">Wrap</p>
+                        <p slot="subtitle">(Optional)</p>
+                    </IgbStep>
+                </IgbStepper>
+            </div>
+            <div class="column-layout group_2">
+                <IgbTabs class="tabs" 子ビュー-scope>
+                    <IgbTab Selected="true">
+                        <span class="material-icons">
+                            info
+                        </span>
+                        <span>Label</span>
+                    </IgbTab>
+                    <IgbTabPanel class="row-layout tab-item-content" 子ビュー-scope></IgbTabPanel>
+                    <IgbTab>
+                        <span class="material-icons">
+                            info
+                        </span>
+                        <span>Label</span>
+                    </IgbTab>
+                    <IgbTabPanel class="row-layout tab-item-content" 子ビュー-scope></IgbTabPanel>
+                </IgbTabs>
+            </div>
+        </div>
+        <div class="row-layout group_1">
+            <div class="column-layout group_2">
+                <IgbNavbar class="navbar" 子ビュー-scope>
+                    <IgbIconButton slot="start" Variant="IconButtonVariant.Flat">
+                        <span class="material-icons">
+                            menu
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbIconButton>
+                    <div class="row-layout group_4">
+                        <h6 class="h6">
+                            Screen Title
+                        </h6>
+                    </div>
+                    <IgbIconButton slot="end" Variant="IconButtonVariant.Flat">
+                        <span class="material-icons">
+                            search
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbIconButton>
+                    <IgbIconButton slot="end" Variant="IconButtonVariant.Flat">
+                        <span class="material-icons">
+                            favorite
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbIconButton>
+                    <IgbIconButton slot="end" Variant="IconButtonVariant.Flat">
+                        <span class="material-icons">
+                            more_vert
+                        </span>
+                        <IgbRipple></IgbRipple>
+                    </IgbIconButton>
+                </IgbNavbar>
+                <IgbNavDrawer Open="true" Position="NavDrawerPosition.Relative" class="nav-drawer" 子ビュー-scope>
+                    <IgbNavDrawerItem>
+                        <span slot="icon">
+                            <span class="material-icons icon">
+                                account_circle
+                            </span>
+                            <IgbRipple></IgbRipple>
+                        </span>
+                        <div slot="content">Title goes here</div>
+                    </IgbNavDrawerItem>
+                </IgbNavDrawer>
+            </div>
+            <div class="column-layout group_2">
+                <IgbButton Size="SizableComponentSize.Large" class="button" 子ビュー-scope>
+                    Button
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+            </div>
+            <div class="column-layout group_2">
+                <IgbButtonGroup class="user-input" 子ビュー-scope>
+                    <IgbToggleButton>
+                        Button
+                        <IgbRipple></IgbRipple>
+                    </IgbToggleButton>
+                    <IgbToggleButton>
+                        Button
+                        <IgbRipple></IgbRipple>
+                    </IgbToggleButton>
+                    <IgbToggleButton>
+                        Button
+                        <IgbRipple></IgbRipple>
+                    </IgbToggleButton>
+                </IgbButtonGroup>
+            </div>
+            <div class="column-layout group_2">
+                <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" class="user-input_2" 子ビュー-scope>
+                    Label
+                </IgbCheckbox>
+            </div>
+        </div>
+        <div class="row-layout group_1">
+            <div class="column-layout group_2">
+                <IgbCombo Outlined="true" Data="@_financialBoxOfficeRevenue" Label="Label/Placeholder" DisplayKey="Franchise" SingleSelect="true" class="user-input" 子ビュー-scope></IgbCombo>
+                <span class="banner">Banner not yet available in Blazor</span>
+            </div>
+            <div class="column-layout group_2">
+                <IgbDatePicker Label="Date" class="date-picker" 子ビュー-scope></IgbDatePicker>
+            </div>
+            <div class="column-layout group_2">
+                <IgbButton Variant="ButtonVariant.Fab" Size="SizableComponentSize.Large" class="user-input_2" 子ビュー-scope>
+                    <span class="material-icons">
+                        add
+                    </span>
+                    <IgbRipple></IgbRipple>
+                </IgbButton>
+                <IgbAvatar Shape="AvatarShape.Circle">
+                    <span class="material-icons">
+                        people
+                    </span>
+                </IgbAvatar>
+            </div>
+            <div class="column-layout group_2">
+                <IgbInput Label="Label" Outlined="true" class="user-input" 子ビュー-scope></IgbInput>
+                <IgbTextarea Label="Label/Placeholder" Outlined="true" class="user-input" 子ビュー-scope></IgbTextarea>
+            </div>
+        </div>
+        <div class="row-layout group_1">
+            <div class="column-layout group_2">
+                <IgbRadioGroup Alignment="RadioGroupAlignment.Horizontal" value="@_value" change="@(e => _value = e.value)" class="user-input_2" 子ビュー-scope>
+                    <IgbRadio Value="1" class="radio" 子ビュー-scope>
+                        Label
+                    </IgbRadio>
+                    <IgbRadio Value="2" class="radio" 子ビュー-scope>
+                        Label
+                    </IgbRadio>
+                    <IgbRadio Value="3" class="radio" 子ビュー-scope>
+                        Label
+                    </IgbRadio>
+                </IgbRadioGroup>
+                <IgbRating Size="SizableComponentSize.Large" class="user-input_2" 子ビュー-scope></IgbRating>
+                <IgbSwitch class="user-input_2" 子ビュー-scope>
+                    Label
+                </IgbSwitch>
+            </div>
+            <div class="column-layout group_2">
+                <IgbSelect Outlined="true" Label="Label/Placeholder" class="user-input" 子ビュー-scope>
+                    <IgbSelectItem Value="Option">
+                        Option
+                    </IgbSelectItem>
+                </IgbSelect>
+            </div>
+            <div class="column-layout group_2">
+                <IgbSlider Min="0" Max="100" Step="10" DiscreteTrack="true" Value="@_value1" Change="@(e => _value1 = e.Detail)" class="slider" 子ビュー-scope></IgbSlider>
+            </div>
+            <div class="column-layout group_2">
+                <h5 class="content">
+                    Heading
+                </h5>
+                <p class="typography__body-1 content">
+                    Body 1
+                </p>
+                <a class="typography__body-1 hyperlink">
+                    This is a link
+                </a>
+                <img class="image" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private IgbStepper _stepper;
+    private List<BoxOfficeRevenueType> _financialBoxOfficeRevenue = new();
+    private string _value = "1";
+    private double _value1 = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _financialBoxOfficeRevenue = await FinancialService.GetBoxOfficeRevenue();
+        await base.OnInitializedAsync();
+    }
+}

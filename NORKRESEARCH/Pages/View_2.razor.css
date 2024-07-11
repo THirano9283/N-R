@@ -1,0 +1,17 @@
+.row-layout {
+    display: flex;
+}
+.view-2-container {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    gap: 30px;
+    height: 100%;
+}
+.grid {
+    margin: 30px;
+    min-width: 600px;
+    min-height: 300px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
